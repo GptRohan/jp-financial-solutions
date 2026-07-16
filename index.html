@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JP Financial Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root{
+  --navy-deep:#0a0f1a;
+  --navy:#0e1626;
+  --navy-card:#121c30;
+  --line:#22304a;
+  --gold:#c9a34e;
+  --gold-bright:#e0bd6a;
+  --ivory:#f3efe6;
+  --muted:#93a1bb;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--navy-deep);
+  color:var(--ivory);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  gap:34px;
+  padding:9px 6%;
+  background:var(--navy-deep);
+  border-bottom:1px solid var(--line);
+  font-size:12.5px;
+  color:var(--muted);
+  letter-spacing:.3px;
+}
+.topbar a{display:flex;align-items:center;gap:7px;transition:.3s;}
+.topbar a:hover{color:var(--gold);}
+.topbar i{color:var(--gold);font-size:12px;}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:36px;left:0;right:0;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 6%;
+  background:rgba(10,15,26,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-mark{
+  width:46px;height:46px;
+  border-radius:50%;
+  border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:16px;
+  color:var(--gold);
+  letter-spacing:.5px;
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.logo-text strong{
+  font-family:'Fraunces',serif;
+  font-size:18px;
+  font-weight:600;
+  color:var(--ivory);
+  letter-spacing:.3px;
+}
+.logo-text span{
+  font-size:10px;
+  letter-spacing:2.5px;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+nav ul{display:flex;align-items:center;gap:36px;}
+nav ul li a{
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+  transition:color .3s;
+  position:relative;
+}
+nav ul li a:hover{color:var(--ivory);}
+nav ul li a.nav-cta{
+  background:var(--gold);
+  color:var(--navy-deep);
+  padding:10px 20px;
+  border-radius:30px;
+  font-weight:700;
+}
+nav ul li a.nav-cta:hover{
+  background:var(--gold-bright);
+  color:var(--navy-deep);
+}
+.nav-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:22px;cursor:pointer;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:176px 6% 100px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at top, rgba(201,163,78,.10), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(201,163,78,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,163,78,.06) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse at center, black 0%, transparent 75%);
+  pointer-events:none;
+}
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  pointer-events:none;
+}
+.orb1{
+  width:340px;height:340px;
+  background:radial-gradient(circle, rgba(201,163,78,.35), transparent 70%);
+  top:-60px;left:-80px;
+  animation:float1 9s ease-in-out infinite;
+}
+.orb2{
+  width:280px;height:280px;
+  background:radial-gradient(circle, rgba(147,161,187,.20), transparent 70%);
+  bottom:-40px;right:-60px;
+  animation:float2 11s ease-in-out infinite;
+}
+@keyframes float1{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(20px,25px);}
+}
+@keyframes float2{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(-25px,-15px);}
+}
+@media (prefers-reduced-motion: reduce){
+  .orb1,.orb2{animation:none;}
+}
+.hero-inner{position:relative;max-width:780px;}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:24px;
+}
+.eyebrow::before,.eyebrow::after{
+  content:"";
+  width:28px;height:1px;
+  background:var(--gold);
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:clamp(34px,5.4vw,60px);
+  line-height:1.12;
+  color:var(--ivory);
+  margin-bottom:20px;
+}
+.hero h1 em{
+  color:var(--gold);
+  font-style:italic;
+}
+.hero p{
+  font-size:18px;
+  color:var(--muted);
+  margin-bottom:38px;
+  letter-spacing:.3px;
+}
+.hero-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn,.btn2{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:15px 32px;
+  border-radius:30px;
+  font-weight:700;
+  font-size:15px;
+  transition:.3s;
+}
+.btn{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy-deep);box-shadow:0 8px 24px rgba(201,163,78,.25);}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(201,163,78,.4);}
+.btn2{border:1.5px solid var(--line);color:var(--ivory);background:rgba(255,255,255,.02);}
+.btn2:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);}
+.hero-contact{
+  margin-top:26px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  font-size:14px;
+  color:var(--muted);
+}
+.hero-contact a{display:flex;align-items:center;gap:8px;transition:.3s;}
+.hero-contact a:hover{color:var(--gold);}
+.hero-contact i{color:var(--gold);}
+
+/* ===== TICKER ===== */
+.ticker-wrap{
+  background:var(--navy);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  padding:16px 0;
+}
+.ticker{
+  display:flex;
+  width:max-content;
+  animation:scroll 32s linear infinite;
+}
+.ticker span{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--muted);
+  padding:0 28px;
+  white-space:nowrap;
+  border-right:1px solid var(--line);
+}
+.ticker span i{color:var(--gold);margin-right:10px;font-style:normal;}
+@keyframes scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker{animation:none;}
+}
+
+/* ===== SECTIONS ===== */
+section{padding:110px 6%;}
+.section-head{text-align:center;max-width:600px;margin:0 auto 60px;}
+.section-head .eyebrow{margin-bottom:16px;}
+.section-head h2{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:clamp(28px,3.6vw,42px);
+  color:var(--ivory);
+}
+
+/* ===== SERVICES ===== */
+#services{background:var(--navy-deep);}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.card{
+  background:var(--navy-card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:34px 28px;
+  transition:.35s;
+  position:relative;
+  overflow:hidden;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(201,163,78,.5);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+.card:hover::after{transform:scaleX(1);}
+.card .icon-circle{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg, rgba(201,163,78,.18), rgba(201,163,78,.04));
+  border:1px solid rgba(201,163,78,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  transition:.35s;
+}
+.card:hover .icon-circle{
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  border-color:transparent;
+}
+.card:hover .icon-circle i{color:var(--navy-deep);}
+.card i{
+  font-size:20px;
+  color:var(--gold);
+  transition:.35s;
+}
+.card h3{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:19px;
+  color:var(--ivory);
+}
+
+/* ===== CONTACT / FOOTER ===== */
+footer{
+  background:var(--navy);
+  border-top:1px solid var(--line);
+  padding:80px 6% 40px;
+  text-align:center;
+}
+footer .logo-mark{margin:0 auto 20px;}
+footer h2{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:28px;
+  color:var(--ivory);
+  margin-bottom:8px;
+}
+footer .tagline{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:44px;
+}
+.contact-grid{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+  max-width:780px;
+  margin:0 auto 50px;
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--navy-card);
+  border:1px solid var(--line);
+  padding:16px 24px;
+  border-radius:12px;
+  font-size:15px;
+  color:var(--ivory);
+  transition:.3s;
+}
+.contact-item:hover{border-color:var(--gold);color:var(--gold);}
+.contact-item i{color:var(--gold);font-size:16px;}
+footer .bottom{
+  border-top:1px solid var(--line);
+  padding-top:28px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp{
+  position:fixed;
+  bottom:26px;right:26px;
+  width:60px;height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  color:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  z-index:998;
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);}
+  70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:860px){
+  nav ul{
+    position:fixed;
+    top:114px;right:0;
+    flex-direction:column;
+    background:var(--navy);
+    width:220px;
+    padding:24px;
+    gap:22px;
+    border-left:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    transform:translateX(100%);
+    transition:.35s;
+  }
+  nav ul.open{transform:translateX(0);}
+  .nav-toggle{display:block;}
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="tel:9422360130"><i class="fas fa-phone"></i>9422360130</a>
+  <a href="https://wa.me/919422360130"><i class="fab fa-whatsapp"></i>WhatsApp: 9422360130</a>
+  <a href="mailto:jpassociate0097@gmail.com"><i class="fas fa-envelope"></i>jpassociate0097@gmail.com</a>
+</div>
+
+<nav>
+  <div class="logo">
+    <div class="logo-mark">JP</div>
+    <div class="logo-text">
+      <strong>JP Financial Solutions</strong>
+      <span>Loan Advisory</span>
+    </div>
+  </div>
+  <ul id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/919422360130" class="nav-cta"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Loan Advisory</div>
+    <h1>Your Trusted <em>Financial</em> Partner</h1>
+    <p>Fast • Secure • Transparent Loan Solutions</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/919422360130" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+      <a href="tel:9422360130" class="btn2"><i class="fas fa-phone"></i> Call Now</a>
+    </div>
+    <div class="hero-contact">
+      <a href="tel:9422360130"><i class="fas fa-phone"></i>9422360130</a>
+      <a href="https://wa.me/919422360130"><i class="fab fa-whatsapp"></i>WhatsApp: 9422360130</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span><i class="fas fa-house"></i>Home Loan</span>
+    <span><i class="fas fa-car"></i>Car Loan</span>
+    <span><i class="fas fa-user"></i>Personal Loan</span>
+    <span><i class="fas fa-building"></i>Business Loan</span>
+    <span><i class="fas fa-house-chimney"></i>Loan Against Property</span>
+    <span><i class="fas fa-coins"></i>Gold Loan</span>
+    <span><i class="fas fa-landmark"></i>Mortgage Loan</span>
+    <span><i class="fas fa-arrows-rotate"></i>Balance Transfer</span>
+    <span><i class="fas fa-sack-dollar"></i>Loan Top-Up</span>
+    <!-- duplicate for seamless loop -->
+    <span><i class="fas fa-house"></i>Home Loan</span>
+    <span><i class="fas fa-car"></i>Car Loan</span>
+    <span><i class="fas fa-user"></i>Personal Loan</span>
+    <span><i class="fas fa-building"></i>Business Loan</span>
+    <span><i class="fas fa-house-chimney"></i>Loan Against Property</span>
+    <span><i class="fas fa-coins"></i>Gold Loan</span>
+    <span><i class="fas fa-landmark"></i>Mortgage Loan</span>
+    <span><i class="fas fa-arrows-rotate"></i>Balance Transfer</span>
+    <span><i class="fas fa-sack-dollar"></i>Loan Top-Up</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-head">
+    <div class="eyebrow">What We Offer</div>
+    <h2>Our Services</h2>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="icon-circle"><i class="fas fa-house"></i></div><h3>Home Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-car"></i></div><h3>Car Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-user"></i></div><h3>Personal Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-building"></i></div><h3>Business Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-house-chimney"></i></div><h3>Loan Against Property</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-coins"></i></div><h3>Gold Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-landmark"></i></div><h3>Mortgage Loan</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-arrows-rotate"></i></div><h3>Balance Transfer</h3></div>
+    <div class="card"><div class="icon-circle"><i class="fas fa-sack-dollar"></i></div><h3>Loan Top-Up</h3></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="logo-mark">JP</div>
+  <h2>JP Financial Solutions</h2>
+  <div class="tagline">Fast • Secure • Transparent</div>
+  <div class="contact-grid">
+    <a href="tel:9422360130" class="contact-item"><i class="fas fa-phone"></i>9422360130</a>
+    <a href="mailto:jpassociate0097@gmail.com" class="contact-item"><i class="fas fa-envelope"></i>jpassociate0097@gmail.com</a>
+    <a href="https://instagram.com/jpfinancial_solutions" class="contact-item" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>@jpfinancial_solutions</a>
+  </div>
+  <div class="bottom">&copy; <span id="year"></span> JP Financial Solutions. All rights reserved.</div>
+</footer>
+
+<a href="https://wa.me/919422360130" class="whatsapp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
